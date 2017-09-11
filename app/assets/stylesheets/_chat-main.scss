@@ -50,17 +50,20 @@
       display: inline-block;
       margin: 0 0 10px 10px;
     }
+
     &__messagetext {
       font-size: 14px;
       color: #434A54;
       margin: 0 0 40px 0;
     }
   }
+
   &__footer {
     width: $mainWidth;
     height: 90px;
     font-size: 16px;
     padding: 20px 40px;
+
     &__form{
       .input{
         width: 900px;
@@ -87,9 +90,6 @@
         border: none;
         float: left;
         margin-right: 10px;
-        .fa.fa-picture-o {
-
-        }
         .btn {
         visibility: hidden;
         }
