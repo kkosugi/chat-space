@@ -1,0 +1,12 @@
+.clearfix:after {
+content: "";
+display: block;
+clear: both;
+
+}
+
+$mainWidth: calc(100vw - 300px);
+$skyblue: #38AEF0;
+$textColor: #FFFFFF;
+$fontWeight:  bold;
+$mainColor: #434A54;
