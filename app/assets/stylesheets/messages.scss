@@ -1,0 +1,60 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.flash {
+  background-color: $skyblue;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar {
+  background-color: #2f3e51;
+  width: 300px;
+  height: 100vh;
+  float: left;
+  color: $textColor;
+  position: relative;
+
+  &__user{
+    background-color: #253141;
+    width: 260px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 16px;
+    font-weight:  $fontWeight;
+    list-style-type: none;
+    padding:0 20px;
+
+    &__name{
+      float: left;
+      display: inline;
+       p{
+         margin: 0;
+       }
+    }
+
+    &__btn {
+      margin-left: 90px;
+      display: inline;
+    }
+  }
+
+  &__groups {
+    list-style-type: none;
+    padding: 0 20px;
+    li.sidebar__group {
+        font-size: 15px;
+        color: $textColor;
+        margin: 20px 0 5px 0;
+    }
+    li.sidebar__massage {
+      font-size: 11px;
+      color: $textColor;
+      margin:  0 0 40px 0;
+    }
+  }
+}
+

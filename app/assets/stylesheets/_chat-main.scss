@@ -1,0 +1,101 @@
+.chat-main{
+  width: $mainWidth;
+  float: right;
+  &__header {
+    height: 70px;
+
+    border: 1px solid #eeeeee;
+    padding: 0 40px ;
+
+    &__groupname {
+      font-size: 20px;
+      color: #333333;
+      padding: 35px 0 15px 0;
+      float: left;
+    }
+    &__edit {
+      height: 40px;
+      line-height: 40px;
+      float: right;
+      margin-top: 28px;
+      border: 1px solid #38AEF0;
+      padding: 0 20px;
+      color: $skyblue;
+    }
+    &__members {
+      font-size: 12px;
+      color: #999999;
+      clear: both;
+    }
+  }
+
+  &__body {
+    height: calc(100vh - 70px - 90px);
+    width: $mainWidth;
+     padding: 0 40px ;
+
+    &__messageslist {
+      padding:46px 0 0 0;
+    }
+
+    &__messagename {
+      font-size: 16px;
+      color: #434A54;
+      display: inline-block;
+    }
+
+    &__messagetime {
+      font-size: 12px;
+      color: #999999;
+      display: inline-block;
+      margin: 0 0 10px 10px;
+    }
+
+    &__messagetext {
+      font-size: 14px;
+      color: #434A54;
+      margin: 0 0 40px 0;
+    }
+  }
+
+  &__footer {
+    width: $mainWidth;
+    height: 90px;
+    font-size: 16px;
+    padding: 20px 40px;
+
+    &__form{
+      .input{
+        width: 900px;
+        height: 50px;
+        border: none;
+        padding: 0 10px;
+        color: black;
+        float: left;
+      }
+      .send{
+        width: 100px;
+        height: 50px;
+        border: none;
+        color: white;
+        background-color: $skyblue;
+        margin-left: 15px;
+      }
+      .upload {
+        position: relative;
+        width: 25px;
+        height: 50px;
+        line-height: 50px;
+        background-color: white;
+        border: none;
+        float: left;
+        margin-right: 10px;
+        .btn {
+        visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+
