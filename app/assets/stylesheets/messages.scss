@@ -48,11 +48,13 @@ html, body{
         font-size: 15px;
         color: $textColor;
         margin: 20px 0 5px 0;
+        text-decoration: none;
     }
     li.sidebar__massage {
       font-size: 11px;
       color: $textColor;
       margin:  0 0 40px 0;
+      text-decoration: none;
     }
   }
 }

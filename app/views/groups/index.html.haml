@@ -11,6 +11,7 @@
 
    .sidebar__groups
       - current_user.groups.each do |g|
-         %li.sidebar__group
-            = g.name
+         = link_to group_messages_path(current_user) do
+            %li.sidebar__group
+               = g.name
          %li.sidebar__massage まだメッセージはありません
