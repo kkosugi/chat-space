@@ -1,0 +1,16 @@
+
+.sidebar
+   %ul.sidebar__user
+      %li.sidebar__user__name
+         %p kosugi
+      %li.sidebar__user__btn
+         = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+         = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+
+   .sidebar__groups
+      - current_user.groups.each do |g|
+         %li.sidebar__group
+            = g.name
+         %li.sidebar__massage まだメッセージはありません
