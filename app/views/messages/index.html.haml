@@ -2,7 +2,7 @@
 .sidebar
    %ul.sidebar__user
       %li.sidebar__user__name
-         %p kosugi
+         %p #{current_user.name}
       %li.sidebar__user__btn
          = link_to new_group_path do
             %i.fa.fa-pencil-square-o
