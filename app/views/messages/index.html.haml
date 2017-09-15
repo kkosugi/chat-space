@@ -2,23 +2,24 @@
 .sidebar
    %ul.sidebar__user
       %li.sidebar__user__name
-         %p kosugi
+         %p #{current_user.name}
       %li.sidebar__user__btn
-         %i.fa.fa-pencil-square-o
-         %i.fa.fa-cog
+         = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+         = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
 
    .sidebar__groups
-      %li.sidebar__group 1
-      %li.sidebar__massage massage
-      %li.sidebar__group 2
-      %li.sidebar__massage massage2
-
+      - current_user.groups.each do |g|
+         %li.sidebar__group
+            = g.name
+         %li.sidebar__massage まだメッセージはありません
 
 .chat-main.clearfix
    .chat-main__header
       %p.chat-main__header__groupname  home
-      %p.chat-main__header__edit
-         = link_to 'edit'
+      = link_to edit_group_path(current_user) do
+         %p.chat-main__header__edit edit
       %p.chat-main__header__members Member: kosugi
 
    .chat-main__body.clearfix
