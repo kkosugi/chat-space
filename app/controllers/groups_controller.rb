@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    binding.pry
     @group = Group.new(group_params)
     if @group.save
       flash[:notice] = "グループを作成しました"
@@ -19,10 +20,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.new
+    @group = Group.find(params[:id])
   end
 
-  def updates
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      flash[:notice] = "グループを編集しました"
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
