@@ -9,13 +9,6 @@ ja:
       not_saved:
         one: "エラーにより、この %{resource} を保存できません："
         other: "%{count} 個のエラーにより、この %{resource} を保存できません："
-    activerecord:
-    errors:
-      models:
-        group:
-          attribute:
-            name:
-              blank:
 
   devise:
     failure:
