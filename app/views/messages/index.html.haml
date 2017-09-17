@@ -17,30 +17,25 @@
 
 .chat-main.clearfix
    .chat-main__header
-      %p.chat-main__header__groupname  home
+      %p.chat-main__header__groupname
+         = @group.name
       = link_to edit_group_path(current_user) do
          %p.chat-main__header__edit edit
-      %p.chat-main__header__members Member: kosugi
+      %p.chat-main__header__members
+         / - @member.each do |m|
+         /    = m.name
 
    .chat-main__body.clearfix
       .chat-main__body__messageslist
          .chat-main__body__messagename
-            kosugi
+
          .chat-main__body__messagetime
-            2017/09/17 12:21:11
-         .chat-main__body__messagetext
-            こんにちは
-         .chat-main__body__messagename
-            kosugi
-         .chat-main__body__messagetime
-            2017/09/17 12:21:11
-         .chat-main__body__messagetext
-            こんにちは
-   .chat-main__footer
-      .chat-main__footer__form.clearfix
-         %input.input{type: "text",name: "title", size: "40", placeholder: "type a message"}
+
+   .chat-main__footer__form.clearfix
+      = form_for ([@group, @message]) do |f|
+         = f.text_field :text, {placeholder: "type a message", size: "40", class: "input" }
          .upload
-            %label
+            = f.label :image do
                %i.fa.fa-picture-o
-               %input.btn{type: "file"}
-         %input.send{type: "submit", value: "Send",}
+                  = f.file_field :image, class: "btn"
+         = f.submit :send, class: "send"
