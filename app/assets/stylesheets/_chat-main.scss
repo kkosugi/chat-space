@@ -78,6 +78,7 @@
         height: 50px;
         border: none;
         color: white;
+        float: left;
         background-color: $skyblue;
         margin-left: 15px;
       }
@@ -91,7 +92,7 @@
         float: left;
         margin-right: 10px;
         .btn {
-        visibility: hidden;
+        display: none;
         }
       }
     }
