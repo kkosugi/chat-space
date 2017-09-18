@@ -1,8 +1,7 @@
-
 .sidebar
    %ul.sidebar__user
-      %li.sidebar__user__name #{current_user.name}
-
+      %li.sidebar__user__name
+         %p #{current_user.name}
       %li.sidebar__user__btn
          = link_to new_group_path do
             %i.fa.fa-pencil-square-o
@@ -11,7 +10,6 @@
 
    .sidebar__groups
       - current_user.groups.each do |g|
-         = link_to group_messages_path(g[:id]) do
-            %li.sidebar__group
-               = g.name
+         %li.sidebar__group
+            = g.name
          %li.sidebar__massage まだメッセージはありません

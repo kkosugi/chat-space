@@ -1,9 +1,9 @@
 .chat-main{
+  height: 100%;
   width: $mainWidth;
   float: right;
   &__header {
-    height: 70px;
-
+    min-height: 70px;
     border: 1px solid #eeeeee;
     padding: 0 40px ;
 
@@ -26,35 +26,36 @@
       font-size: 12px;
       color: #999999;
       clear: both;
+      text-decoration: none;
     }
   }
 
   &__body {
-    height: calc(100vh - 70px - 90px);
+    min-height: calc(100% - 70px - 90px);
     width: $mainWidth;
-     padding: 0 40px ;
+    padding: 0 40px ;
 
     &__messageslist {
       padding:46px 0 0 0;
-    }
 
-    &__messagename {
-      font-size: 16px;
-      color: #434A54;
-      display: inline-block;
-    }
+      &__name {
+        font-size: 16px;
+        color: #434A54;
+        display: inline-block;
+      }
 
-    &__messagetime {
-      font-size: 12px;
-      color: #999999;
-      display: inline-block;
-      margin: 0 0 10px 10px;
-    }
+      &__time {
+        font-size: 12px;
+        color: #999999;
+        display: inline-block;
+        margin: 0 0 10px 10px;
+      }
 
-    &__messagetext {
-      font-size: 14px;
-      color: #434A54;
-      margin: 0 0 40px 0;
+      &__text {
+        font-size: 14px;
+        color: #434A54;
+        margin: 0 0 40px 0;
+      }
     }
   }
 
@@ -63,15 +64,17 @@
     height: 50px;
     font-size: 16px;
     padding: 20px 40px;
+    background-color: gray;
 
     &__form{
       .input{
         width: 900px;
         height: 50px;
         border: none;
-        padding: 0 10px;
+        padding: 0 s10px;
         color: black;
         float: left;
+        margin-left: 20px;
       }
       .send{
         width: 100px;
@@ -83,7 +86,6 @@
         margin-left: 15px;
       }
       .upload {
-        position: relative;
         width: 25px;
         height: 50px;
         line-height: 50px;

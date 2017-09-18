@@ -1,19 +1,4 @@
-
-.sidebar
-   %ul.sidebar__user
-      %li.sidebar__user__name
-         %p #{current_user.name}
-      %li.sidebar__user__btn
-         = link_to new_group_path do
-            %i.fa.fa-pencil-square-o
-         = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
-
-   .sidebar__groups
-      - current_user.groups.each do |g|
-         %li.sidebar__group
-            = g.name
-         %li.sidebar__massage まだメッセージはありません
+= render partial: "sidebar"
 
 .chat-main.clearfix
    .chat-main__header
@@ -22,20 +7,25 @@
       = link_to edit_group_path(current_user) do
          %p.chat-main__header__edit edit
       %p.chat-main__header__members
-         / - @member.each do |m|
-         /    = m.name
+         Member
+         - current_user.groups.find(params[:group_id]).users.each do |m|
+            = m.name
 
-   .chat-main__body.clearfix
-      .chat-main__body__messageslist
-         .chat-main__body__messagename
-
-         .chat-main__body__messagetime
-
-   .chat-main__footer__form.clearfix
-      = form_for ([@group, @message]) do |f|
-         = f.text_field :text, {placeholder: "type a message", size: "40", class: "input" }
-         .upload
-            = f.label :image do
-               %i.fa.fa-picture-o
-                  = f.file_field :image, class: "btn"
-         = f.submit :send, class: "send"
+   .chat-main__body
+      - @group.messages.each do |m|
+         .chat-main__body__messageslist
+            .chat-main__body__messageslist__name
+               = m.user.name
+            .chat-main__body__messageslist__time
+               = m.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M')
+            .chat-main__body__messageslist__text
+               = m.text
+   .chat-main__footer
+      .chat-main__footer__form.clearfix
+         = form_for ([@group, @message]) do |f|
+            = f.text_field :text, {placeholder: "type a message", size: "40", class: "input" }
+            .upload
+               = f.label :image do
+                  %i.fa.fa-picture-o
+                     = f.file_field :image, class: "btn"
+            = f.submit :send, class: "send"
