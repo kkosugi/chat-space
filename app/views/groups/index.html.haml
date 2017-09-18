@@ -1,17 +1,1 @@
-
-.sidebar
-   %ul.sidebar__user
-      %li.sidebar__user__name #{current_user.name}
-
-      %li.sidebar__user__btn
-         = link_to new_group_path do
-            %i.fa.fa-pencil-square-o
-         = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
-
-   .sidebar__groups
-      - current_user.groups.each do |g|
-         = link_to group_messages_path(g[:id]) do
-            %li.sidebar__group
-               = g.name
-         %li.sidebar__massage まだメッセージはありません
+= render partial: "messages/sidebar"

@@ -5,4 +5,13 @@ class Group < ApplicationRecord
     # accepts_nested_attributes_for :group_users
 
     validates :name, presence: true
+      def permit
+     if messages.last.try(:text).present?
+       messages.last.text
+     elsif messages.last.try(:image).present?
+       "画像が投稿されました"
+     else
+       "メッセージがありません"
+     end
+    end
 end
