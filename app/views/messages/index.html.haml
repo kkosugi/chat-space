@@ -17,9 +17,10 @@
             .chat-main__body__messageslist__name
                = m.user.name
             .chat-main__body__messageslist__time
-               = m.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M')
+               = m.created_at
             .chat-main__body__messageslist__text
                = m.text
+               = image_tag m.image_url(:thumb) if m.image.present?
    .chat-main__footer
       .chat-main__footer__form.clearfix
          = form_for ([@group, @message]) do |f|
