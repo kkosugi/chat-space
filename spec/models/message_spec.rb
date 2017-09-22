@@ -4,17 +4,23 @@ describe Message do
   describe '#create' do
 
     it 'is valid  a text' do
-      message = build(:message, image: nil)
+      group = create(:group)
+      user = create(:user)
+      message = build(:message, image: nil, group_id: group.id, user_id: user.id)
       expect(message).to be_valid
     end
 
     it 'is valid with a image' do
-      message = build(:message)
+      group = create(:group)
+      user = create(:user)
+      message = build(:message, group_id: group.id, user_id: user.id)
       expect(message).to be_valid
     end
 
     it 'is valid with a text and image' do
-      message = build(:message)
+      group = create(:group)
+      user = create(:user)
+      message = build(:message, group_id: group.id, user_id: user.id)
       expect(message).to be_valid
     end
 
