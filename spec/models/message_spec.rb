@@ -3,24 +3,19 @@ require 'rails_helper'
 describe Message do
   describe '#create' do
 
+
     it 'is valid  a text' do
-      group = create(:group)
-      user = create(:user)
-      message = build(:message, image: nil, group_id: group.id, user_id: user.id)
+      message = build(:message, image: nil)
       expect(message).to be_valid
     end
 
     it 'is valid with a image' do
-      group = create(:group)
-      user = create(:user)
-      message = build(:message, group_id: group.id, user_id: user.id)
+      message = build(:message, text: nil)
       expect(message).to be_valid
     end
 
     it 'is valid with a text and image' do
-      group = create(:group)
-      user = create(:user)
-      message = build(:message, group_id: group.id, user_id: user.id)
+      message = build(:message)
       expect(message).to be_valid
     end
 
