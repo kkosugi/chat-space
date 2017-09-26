@@ -1,5 +1,9 @@
 $(function(){
   function buildHTML(message){
+    var insertImage = " ";
+     if (message.image.url) {
+       insertImage = `<img src="${message.image.url}" width="300" height=nil>`;
+     }
     var html =
     `<div class = chat-main__body__messageslist>
       <div class = chat-main__body__messageslist__name>
@@ -8,7 +12,7 @@ $(function(){
         ${message.created_at}</div>
       <div class = chat-main__body__messageslist__text>
                ${message.text}
-               <img src = '${message.image.url}' width="300" height="nil"}>
+               ${insertImage}
       </div>
     </div>`
     return html;
