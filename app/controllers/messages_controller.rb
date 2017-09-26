@@ -9,8 +9,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @group = Group.find(params[:group_id])
     if @message.save
-      flash[:notice] = "メッセージを投稿しました"
-      redirect_to action: :index
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: "メッセージを投稿しました" }
+        format.json
+      end
     else
       flash[:alert] = "失敗しました"
       render :index
