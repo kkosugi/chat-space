@@ -41,4 +41,27 @@ $(function(){
     })
     return false;
   });
+
+    var interval = setInterval(function() {
+      if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: location.href,
+      datatype: 'json',
+    })
+    .done(function(json) {
+      var id = $('.chat').data('messageId');
+      var insertHTML = '';
+      json.messages.forEach(function(message) {
+        if (message.id > id ) {
+          insertHTML += buildHTML(message);
+        }
+      });
+      $('.chat-wrapper').prepend(insertHTML);
+    })
+    .fail(function(json) {
+      alert('自動更新に失敗しました');
+    });
+  } else {
+    clearInterval(interval);
+   }} , 5 * 1000 );
 });

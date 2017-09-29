@@ -43,7 +43,6 @@ $(function() {
   $(document).on('click','.chat-group-user__btn--add', function(){
     var id = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
-    console.log(this)
     $(this).parent().remove();
       appendUserlist(id, name);
   });
