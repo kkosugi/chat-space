@@ -13,7 +13,7 @@
 
    .chat-main__body
       - @group.messages.each do |m|
-         .chat-main__body__messageslist
+         .chat-main__body__messageslist{ "data-message-id": "#{m.id}"}
             .chat-main__body__messageslist__name
                = m.user.name
             .chat-main__body__messageslist__time
