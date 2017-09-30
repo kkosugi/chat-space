@@ -5,7 +5,7 @@ $(function(){
        insertImage = `<img src="${message.image.url}" width="300" height=nil>`;
      }
     var html =
-    `<div class = chat-main__body__messageslist>
+    `<div class = chat-main__body__messageslist data-message-id="${message.id}">
       <div class = chat-main__body__messageslist__name>
         ${message.name}</div>
       <div class = chat-main__body__messageslist__time>
@@ -44,19 +44,21 @@ $(function(){
 
     var interval = setInterval(function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+          var id = $('.chat-main__body__messageslist:last-child').data('messageId');
+          console.log(id);
     $.ajax({
-      url: location.href,
-      datatype: 'json',
+    url: location.href,
+    dataType: 'json',
     })
     .done(function(json) {
-      var id = $('.chat').data('messageId');
       var insertHTML = '';
-      json.messages.forEach(function(message) {
+      json.forEach(function(message) {
         if (message.id > id ) {
           insertHTML += buildHTML(message);
         }
       });
-      $('.chat-wrapper').prepend(insertHTML);
+      $('.chat-main__body').append(insertHTML)
+       $('.html,body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
     })
     .fail(function(json) {
       alert('自動更新に失敗しました');
